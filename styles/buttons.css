@@ -1,0 +1,29 @@
+.buttonHome {
+    cursor: pointer;
+
+}
+
+.buttonCategory {
+    height: 2.375rem;
+    padding: 0 1.375rem;
+    border: none;
+    border-radius: var(--radius-1);
+    background-color: var(--color-grey-500);
+    font-size: var(--font-size-4);
+    font-weight: 600;
+    line-height: 150%;
+    color: var(--color-grey-200);
+    flex-shrink: 0;
+
+}
+
+.buttonCategory:hover {
+    background-color: var(--color-brand-100);
+    color: var(--color-grey-700);
+
+}
+
+.categoryProdut {
+
+    background-color: var(--color-brand-100);
+}
