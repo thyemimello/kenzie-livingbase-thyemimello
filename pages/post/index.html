@@ -1,64 +1,49 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../styles/globalStyles.css">
-    <link rel="stylesheet" href="./index.css">
-    <link rel="stylesheet" href="../../styles/buttons.css">
-    <link rel="stylesheet" href="../../styles/cards.css">
-    <link rel="stylesheet" href="../../styles/footer.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../../styles/globalStyles.css" />
+    <link rel="stylesheet" href="./index.css" />
+    <link rel="stylesheet" href="../../styles/buttons.css" />
+    <link rel="stylesheet" href="../../styles/cards.css" />
+    <link rel="stylesheet" href="../../styles/footer.css" />
 
     <title>Living</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <header id="header">
-        <nav class="container">
-            <div class="logo">
-                <img src="../../asserts/logo.png" alt="logo">
-            </div>
-
-            <button class="button_home">Home</button>
-
-        </nav>
-
+      <div class="logoContainer">
+        <img class="logo" src="../../asserts/logo.png" alt="logo" />
+        <span>Living</span>
+      </div>
+      <button class="button_home">Home</button>
     </header>
 
-    <main>
-
-        <section class="post_home"></section>
-
-        <ul class="button_opem_home container"></ul>
-    </main>
+    <main id="post_main"></main>
 
     <footer class="footer">
-        <div class="footer_container">
-            <div class="footer_div">
-                <div class="logo">
-                    <img src="../../asserts/logofooter.png" alt="">
-                </div>
+      <div class="footer_container">
+        <div class="footer_div">
+          <div class="logo">
+            <img src="../../asserts/logofooter.png" alt="" />
+          </div>
 
-                <div class="footer_div_text"></div>
-                <p class="text_footer">The passage experienced a surge in popularity during the 1960s when Letraset used
-                    it on their dry-transfer sheets, and again during the 90s as desktop publishers bundled the text
-                    with their software.</p>
-
-            </div>
-
+          <div class="footer_div_text"></div>
+          <p class="text_footer">
+            The passage experienced a surge in popularity during the 1960s when
+            Letraset used it on their dry-transfer sheets, and again during the
+            90s as desktop publishers bundled the text with their software.
+          </p>
         </div>
-        <span class="footer_button">
-            <button class="button_footer">Voltar para o topo</button>
-        </span>
-
+      </div>
+      <span class="footer_button">
+        <button class="button_footer">Voltar para o topo</button>
+      </span>
     </footer>
 
     <script type="module" src="./post.js"></script>
-    <script type="module" src="../../scripts/buttons.js"></script>
-    <script type="module" src="../../scripts/cards.js"></script>
-    <script type="module" src="../../scripts/requests.js"></script>
-</body>
-
+  </body>
 </html>

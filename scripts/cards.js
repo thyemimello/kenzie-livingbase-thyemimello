@@ -1,67 +1,45 @@
-import { getPost } from "./requests.js"
+const setId = (postId) => {
+  localStorage.setItem("@postId", postId);
+};
 
-export function creatCard(event) {
+export function creatCard(news) {
+  const main = document.querySelector(".container");
+  main.innerHTML = "";
 
-    const li = document.querySelector(".card")
-    li.innerHTML = ""
+  news.forEach((values) => {
+    const cardContainer = document.createElement("div");
+    const cardImage = document.createElement("img");
+    const cardContentContainer = document.createElement("div");
+    const cardContentTitle = document.createElement("h2");
+    const cardContentParagraph = document.createElement("p");
+    const cardContentbutton = document.createElement("button");
 
-    event.forEach((values) => {
-        const divCard = document.createElement("div")
-        divCard.classList = 'divCard'
+    cardContainer.classList.add("card_container");
+    cardContainer.id = values.id;
+    cardImage.classList.add("card_image");
+    cardContentContainer.classList.add("card_content_container");
+    cardContentTitle.classList.add("card_title");
+    cardContentParagraph.classList.add("card_paragraph");
+    cardContentbutton.classList.add("card_button");
 
-        const divIMg = document.createElement("div")
-        divIMg.classList = 'divImg'
+    cardImage.src = values.image;
+    cardContentTitle.innerText = values.title;
+    cardContentParagraph.innerText = values.description;
+    cardContentbutton.innerText = "Acessar conteúdo";
 
-        const img = document.createElement("img")
-        img.src = values.image
-        img.alt = values.title
+    cardContentbutton.addEventListener("click", () => {
+      setId(values.id);
+      window.location.href = "../pages/post/index.html";
+    });
 
-        const divtext = document.createElement("div")
-        divtext.classList = 'divText'
+    cardContentContainer.append(
+      cardContentTitle,
+      cardContentParagraph,
+      cardContentbutton
+    );
 
-        const h3 = document.createElement("h3")
-        h3.classList = 'titleCard'
-        h3.innerText = values.title
+    cardContainer.append(cardImage, cardContentContainer);
 
-        const p = document.createElement("p")
-        p.classList = 'subtitle'
-        p.innerText = values.description
-
-        const divButton = document.createElement("div")
-        divButton.classList = 'divButton'
-
-        const buttonCard = document.createElement("button_card")
-        buttonCard.innerText = "Acessar conteúdo"
-        buttonCard.classList.add("buttonCard")
-
-        buttonCard.addEventListener("Click", () => {
-            localStorage.setItem("idPost", event.id)
-            window.location.replace("../../post/index.html")
-
-        })
-
-        li.appendChild(divCard)
-        divCard.append(divIMg, divtext, divButton)
-        divIMg.append(img)
-        divIMg.append(h3, p)
-        divButton.appendChild(buttonCard)
-
-
-    })
-    creatCard()
-
-
-    export const cards = async (category, page) => {
-        const showcard = document.querySelector(".show_card")
-
-        const post = await getPost(page)
-
-        let postOpen = [...post]
-
-        if (category != "Todos") {
-            postOpen = post.filter(event => event.category == category)
-        }
-
-        postOpen.forEach(event => showcard.appendChild(creatCard(event)))
-    }
-    cards()
+    main.appendChild(cardContainer);
+  });
+}
